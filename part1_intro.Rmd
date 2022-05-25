@@ -1,0 +1,29 @@
+## Welcome
+
+This is a demo tutorial. Compare it to the [source code](https://github.com/rstudio/learnr/tree/main/inst/tutorials/ex-setup-r/ex-setup-r.Rmd) that made it.
+
+### Outline
+
+This tutorial will help you set up your computer to use R. It is for you if you need to:
+
+* Install R on your computer
+* Install the RStudio IDE
+* Install the `tidyverse` R package
+
+You can skip this tutorial if you've already done these things.
+
+### Is this tutorial for you?
+
+Do you need to work through the tutorial? Take the quiz below to find out.
+
+
+```{r quiz1, echo = FALSE}
+question("Check all that you have NOT done:",
+  answer("installed R on my computer", message = "* Install R"),
+  answer("installed the RStudio IDE", message = "* Install RStudio IDE"),
+  answer("installed the tidyverse R package", message = "* Install Packages"),
+  answer("None of the above. I've done them all.", correct = TRUE, message = "You can skip this tutorial!"),
+  type = "multiple",
+  incorrect = "This tutorial is here to help! To get set up read:"
+)
+```
