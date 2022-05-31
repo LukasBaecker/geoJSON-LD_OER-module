@@ -1,4 +1,4 @@
-## 3.Create GeoJSON-LD
+## 3. Create GeoJSON-LD
 
 ```{r}
 server = function(input, output) {

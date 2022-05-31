@@ -10,7 +10,7 @@ description: >
   how to install R packages from CRAN, and install the tidyverse package.
 ---
 
-## Understanding the Concepts
+## 2. Understanding the Concepts
 To use GeoJSON and share it under the JSON-LD specification it is important to understand the concepts of JSON, GeoJSON, JSON-LD and GeoJSON-LD. In this chapter we will focus on these four specifications and learn them step by step
 
 ### JSON

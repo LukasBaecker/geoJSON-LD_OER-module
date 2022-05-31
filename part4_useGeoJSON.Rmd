@@ -1,4 +1,4 @@
-## use GeoJSON-LD files
+## 4. Use GeoJSON-LD Files
 
 ### How to install R packages
 
