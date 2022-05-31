@@ -1,4 +1,4 @@
-## Install Packages
+## Wrap Up
 
 ### How to install R packages
 
