@@ -11,40 +11,42 @@ description: >
 ---
 
 ## 2. Understanding the Concepts
-```{r 1stpic, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
-myimg <- load.image("graphics/undraw_learning_sketching_nd4f.png")
-grid.raster(myimg)
-```
-In this chapter we want to learn the concepts of JSON. GeoJSON, JSON-LD and GeoJSON-LD. It is important to read them carefully because the different concepts build on each other and can't be viewed individually.
 
 ```{r JSONpic, echo=FALSE, fig.align = "center", out.width="100%"}
-myimg <- load.image("graphics/pexels-cottonbro-4778611.jpg")
-grid.raster(myimg)
+#TODO put in the picture here again
+#myimg <- load.image("graphics/pexels-cottonbro-4778611.jpg")
+#grid.raster(myimg)
 ```
+
+In this chapter we want to learn the concepts of JSON, GeoJSON, JSON-LD and GeoJSON-LD. It is important to read them carefully because the different concepts build on each other and can't be viewed individually. After this chapter you will know how to bring some structure into your chaotic data you may have and you also will be able to understand others structured chaos (hopefully) better.
 
 ### JSON
 
 #### Definition
 
-JSON is a text-format for storing and sharing data in the web. It is developed to be understood by humans AND computers equally. The following definition is cited from www.JSON.org:
+JSON is a text-format for storing and sharing data on the web. It is developed to be understood by humans AND computers equally. The following definition is cited from [JSON.org](https://www.json.org/json-en.html).:
     
 ::: {#JSONdefinition .message}
-JSON (JavaScript Object Notation) is a standardized lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.
+JSON (JavaScript Object Notation) is a standardized lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including `C`, `C++`, `C#`, `Java`, `JavaScript`, `Perl`, `Python`, and many others [like `R`]. These properties make JSON an ideal data-interchange language.
 
 JSON is built on two structures:
-A collection of name/value pairs. In various languages, this is realized as an object, record, struct, dictionary, hash table, keyed list, or associative array.
-An ordered list of values. In most languages, this is realized as an array, vector, list, or sequence.
+
+* A collection of name/value pairs. In various languages, this is realized as an object, record, struct, dictionary, hash table, keyed list, or associative array.
+* An ordered list of values. In most languages, this is realized as an array, vector, list, or sequence.
 
 These are universal data structures. Virtually all modern programming languages support them in one form or another. It makes sense that a data format that is interchangeable with programming languages also be based on these structures.
 
 In JSON, they take on these forms:
-An object is an unordered set of name/value pairs. An object begins with "{" (left brace) and ends with "}" (right brace). Each name is followed by ":" (colon) and the name/value pairs are separated by "," (comma).
+
+* An object is an unordered set of name/value pairs. 
+* An object begins with `{` (left brace) and ends with `}` (right brace)
+* Each name is followed by `:` (colon) and the name/value pairs are separated by `,` (comma).
 :::
 
-Taking this definition and having a look at an example we will now try to understand the concept in a more practicable way. 
-This is a JSON example showing
+Taking this definition and having a look at an example we will now try to understand the concept in a more practicable way.
+Have a look at the following JSON:
 
-```json
+```json 
 {
     "name": "SC Europe",
     "members":[  
@@ -64,19 +66,33 @@ This is a JSON example showing
     "founded": "21-01-2005"
 }  
 ```
-As you can see, the example is easy to read and understand. Just a quick question: What do you think is this JSON-file storing? Probably no ticket-system or a bar's menu. It is not always said that with reading the JSON-file you will understand exactly what the data is about and what it is used for, especially when the stored data gets more abstract. For example it is not very clear what is meant by color at this point. It might describe the lead color of the club but we do not now that from the data. Still, you mostly could get a first impression of the data by having a glimpse at the file itself.
+As you can see, the example is easy to read and understand. Just a quick question: 
+
+:::{.quickquestion}
+What do you think might this JSON-file storing?
+:::
+
+Probably no ticket-system or a bar's menu. It is not always said that with reading the JSON-file you will understand exactly what the data is about and what it is used for, especially when the stored data gets more abstract. For example it is not very clear what is meant by color at this point. It might describe the lead color of the club but we do not know that by just looking at the JSON. Still, you mostly could get a first impression of the data by having a glimpse at the file itself.
 
 #### Setting up a JSON-file
+```{r 1stpic, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
+myimg <- load.image("graphics/undraw_learning_sketching_nd4f.png")
+grid.raster(myimg)
+```
 What do we see in the example?
-First, we can see, that the object is, as defined before, wrapped in {}. Then, we see that the object has multiple attributes that have a specific name and a value both in "" and divided by :. The left side of the colon shows the name of the attribute while the right side shows the value. We can see, that a value can be a list (an array) of values enclosed by [] and that a value can also be an object itself. Do you see that the attribute "members" has an array of objects as value?
+First, we can see, that the object is wrapped in `{` `}` as defined before. Then, we see that the object has multiple attributes that have a specific name and a value both packed in `"` `"` and divided by a `:`. The left side of the colon shows the name of the attribute while the right side shows the value. We can see, that a value can be a list (an array) of values enclosed by `[` `]` and that a value can also be an object itself.
+
+:::{.quickquestion}
+Do you see that the attribute "members" has an array of objects as value?
+:::
 
 Lets have a quick and simple task to get hands on JSON yourself:
-In the following codeblock you can write the JSON file as the following tasks wants you to 
+In the following codeblock you can write the JSON file as the tasks guides you. 
 
 :::{#luigisTask .task-message .panel}
 :::{.panel-body}
 Write a valid JSON file that reflects the following description: 
-The JSON-file should describe a restaurant, that is called Pizza Luigi, and that stores their dishes: the first one is pizza (obviously), the second one pasta (what else) and the third one is tiramisu (delizioso). If you are done check the sollution. Additionally, there are some properties stored for the dishes: The price (pizza costs 7€, pasta 6 and tiramisu 10 because it is one of the best), the information, if it is also available as vegan dish (pizza not, pasta is and tiramisu also can be ordered vegan).
+The JSON-file should describe a restaurant, that is called Pizza Luigi, and that stores their dishes: the first one is pizza (obviously), the second one pasta (what else) and the third one is tiramisu (delizioso!). If you are done check the solution. Additionally, there are some properties stored for the dishes: The price (a pizza costs 7€, pasta 6€ and a piece of tiramisu 10€ because it is the best in town) and it holds the information, if there is a vegan option of the dish (for pizza there is non, for pasta ther is and tiramisu can be ordered vegan as well).
 
 ```{json taskLuigi, exercise = TRUE}
 
@@ -91,38 +107,41 @@ The JSON-file should describe a restaurant, that is called Pizza Luigi, and that
      ]
 }
 ```
-<div id="taskLuigi-hint">
-**Hint:** Objects can be in a list and a value for a properties.
-</div>
-
 :::
 :::
 
 ### Accessing JSON-files and their values
 
-We now saved the SC Europe JSON to a file, and we can load it with `R` using the `rjson` package that we installed before and loaded it in this project with `library(rjson)`. Now we can acccess the json file and save it to a variable.
+We saved the SC Europe JSON from the top to a file, and we can load it with `R` using the `rjson` package that we installed before and loaded it in this project with `library(rjson)`. Now we can access the json file and save it to a variable.
 
 ```{r workingJSON, include=TRUE}
 sceurope <- fromJSON(file = "./data/scEurope.json")
 ```
 
-Now it is your turn to access this files information. Can you access and print ONLY Steve's email-address with the help of those two commands! The accessing of values from JSON in `R` is different than using `Javascript`, because the `rjson` parser is converting the JSON into a R object.
+Now it is your turn to access this files information. 
+
+:::{.quickquestion}
+Can you access and print ONLY Steve's email-address with the help of those two commands? Show us!
+:::
+
+The accessing of values from JSON in `R` is different than using `Javascript`, because the `rjson` parser is converting the JSON into a `R` object.
 
 ```{r accessingSCEurope, exercise=TRUE}
+#show the whole dataset
 print(sceurope)
+#show only when the Club was founded
 print(sceurope$founded)
 ```
 ```{r accessingSCEurope-solution}
 print(sceurope$members[[2]]$email)
 ```
-<div id="accessingSCEurope-hint">
-**Hint:** Have a look at the plot of the whole JSON. There might be hints of how `R` structures the data. 
-</div>
 
-If you need any further information or want to dig deeper into the JSON-format www.JSON.org is a good starting point for you.
+For now that is enough understanding to go on to the GeoJSON-format. In the interactive parts later on you will get more insights into working with JSON. But first let us do a short revision. If you are ready, click on the button below.
+If you need any further information or want to dig deeper into the JSON-format, [JSON.org](https://www.json.org/json-en.html) is a good starting point for you.
 
+### Revision
 ```{r quiz_json, echo=FALSE}
-quiz(caption = "Quiz - JSON",
+quiz(
   question("JSON stands for...",
     answer("Java Static Online Notation", message = "Sure?"),
     answer("JavaScript Object Notation", correct = TRUE, "Correct answer"),
@@ -228,9 +247,9 @@ JSON-LD Basic Markup
 
 JSON-LD Compaction and Expansion
 ![](https://youtu.be/Tm3fD89dqRE)
-
-TODO: NOCHMAL DETAILIERTER BESCHREIBEN UND SCHRITT FÜR SCHRITT ERKLÄREN WIE NE JSON-LD AUFGEBAUT IST
-
+```{r todo123}
+#TODO: NOCHMAL DETAILIERTER BESCHREIBEN UND SCHRITT FÜR SCHRITT ERKLÄREN WIE NE JSON-LD AUFGEBAUT IST
+```
 ### GeoJSON-LD
 
 
