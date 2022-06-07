@@ -18,6 +18,8 @@ library(geojsonio)
 library(sp)
 library(rjson)
 library(imager)
+
+sceurope <- fromJSON(file = "./data/scEurope.json")
 ```
 
 ```{r child = 'part1_intro.Rmd'}
