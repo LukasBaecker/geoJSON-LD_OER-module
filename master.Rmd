@@ -18,7 +18,7 @@ library(geojsonio)
 library(sp)
 library(rjson)
 library(imager)
-
+library(grid)
 sceurope <- fromJSON(file = "./data/scEurope.json")
 ```
 

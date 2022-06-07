@@ -12,14 +12,14 @@ description: >
 
 ## 2. Understanding the Concepts
 ```{r 1stpic, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
-#myimg <- load.image("graphics/undraw_learning_sketching_nd4f.png")
-#plot(myimg,axes=FALSE)
+myimg <- load.image("graphics/undraw_learning_sketching_nd4f.png")
+grid.raster(myimg)
 ```
 In this chapter we want to learn the concepts of JSON. GeoJSON, JSON-LD and GeoJSON-LD. It is important to read them carefully because the different concepts build on each other and can't be viewed individually.
 
 ```{r JSONpic, echo=FALSE, fig.align = "center", out.width="100%"}
-myimg <- load.image("graphics/undraw_learning_sketching_nd4f.png")
-plot(myimg,axes=FALSE)
+myimg <- load.image("graphics/pexels-cottonbro-4778611.jpg")
+grid.raster(myimg)
 ```
 
 ### JSON
@@ -91,7 +91,6 @@ The JSON-file should describe a restaurant, that is called Pizza Luigi, and that
      ]
 }
 ```
-
 <div id="taskLuigi-hint">
 **Hint:** Objects can be in a list and a value for a properties.
 </div>
@@ -105,15 +104,20 @@ We now saved the SC Europe JSON to a file, and we can load it with `R` using the
 
 ```{r workingJSON, include=TRUE}
 sceurope <- fromJSON(file = "./data/scEurope.json")
-print(sceurope)
 ```
 
-Now it is your turn to access this files information.
+Now it is your turn to access this files information. Can you access and print ONLY Steve's email-address with the help of those two commands! The accessing of values from JSON in `R` is different than using `Javascript`, because the `rjson` parser is converting the JSON into a R object.
 
 ```{r accessingSCEurope, exercise=TRUE}
 print(sceurope)
+print(sceurope$founded)
 ```
-
+```{r accessingSCEurope-solution}
+print(sceurope$members[[2]]$email)
+```
+<div id="accessingSCEurope-hint">
+**Hint:** Have a look at the plot of the whole JSON. There might be hints of how `R` structures the data. 
+</div>
 
 If you need any further information or want to dig deeper into the JSON-format www.JSON.org is a good starting point for you.
 
