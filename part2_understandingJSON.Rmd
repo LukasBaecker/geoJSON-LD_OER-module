@@ -11,11 +11,19 @@ description: >
 ---
 
 ## 2. Understanding the Concepts
+```{r 1stpic, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
+myimg <- load.image("graphics/undraw_learning_sketching_nd4f.png")
+plot(myimg,axes=FALSE)
+```
 In this chapter we want to learn the concepts of JSON. GeoJSON, JSON-LD and GeoJSON-LD. It is important to read them carefully because the different concepts build on each other and can't be viewed individually.
 
 ### JSON
 
-####Definition
+#### Definition
+```{r JSONpic, echo=FALSE, fig.align = "center", out.width="100%"}
+myimg <- load.image("graphics/undraw_learning_sketching_nd4f.png")
+plot(myimg,axes=FALSE)
+```
 JSON is a text-format for storing and sharing data in the web. It is developed to be understood by humans AND computers equally. The following definition is cited from www.JSON.org:
     
 ::: {#JSONdefinition .greeting .message style="color: black; background-color: #EAFFA2; padding: 5%; border-radius: 10px; margin: 20px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
@@ -54,7 +62,7 @@ This is a JSON example showing
     "fouded": "21-01-2005"
 }  
 ```
-As you can see, the example is easy to read and understand. Just a quick question: What do you think is this JSON-file storing? Probably no ticket-system or a bar's menu. It is not always said that with reading the JSON-file you will understand exactly what the data is about and what it is used for, especially when the stored data gets more abstract, but you could mostly get a clue by having a glimpse at the file itself.
+As you can see, the example is easy to read and understand. Just a quick question: What do you think is this JSON-file storing? Probably no ticket-system or a bar's menu. It is not always said that with reading the JSON-file you will understand exactly what the data is about and what it is used for, especially when the stored data gets more abstract. For example it is not very clear what is meant by color at this point. It might describe the lead color of the club but we do not now that from the data. Still, you mostly could get a first impression of the data by having a glimpse at the file itself.
 
 ####Setting up a JSON-file
 What do we see in the example?
@@ -62,8 +70,27 @@ First, we can see, that the object is, as defined before is wrapped in {}. Then,
 
 Lets have a quick and simple task to get hands on JSON yourself:
 In the following codeblock you can put in a 
+Create a 
 
-###Accessing JSON-files and their values
+```{r quiz_json_creating, echo=FALSE}
+
+#TODO TODO TODO
+#DAS LÄFUT NICHT SO WIE ICH MIR DAS VORGESTELLT HABE WEIL DIE ANSWER NICHT MIT DEN """""" IM TEXT SELBST KLAR KOMMT UND MAN DAS DANN #IM ENDEFFEKT NICHT SO EINGEBEN KANN WIE ES RICHTIG WÄRE
+
+quiz(
+    caption = "Setting up a JSON",
+    question_text("Write a valid JSON file that reflects the following description (don't use any spaces, except for values if needed or interlaces): The JSON-file should describe a restaurant, that has the name 'Pizza Luigi', and that stores their dishes: the first one is pizza (obviously), the second paste (what else) and the third one is tiramisu (deliciosa). Pay attention to the case sensitivity! of the single values",
+        answer("{'name':'Pizza Luigi','dishes':['pizza','pasta','tiramisu']}", correct = TRUE),
+        correct = "You nailed it!",
+        incorrect = 'There is something wrong. Check it again. Forgot maybe and "" ?',
+        placeholder='{"name":"Testname","members":[{"name":"Allan", "email":"All91cutekitties@gmail.com"},{"name":"Steve","email":"Steve.Without.N@outlook.com"}...',
+        allow_retry = TRUE,
+        trim = TRUE
+    )
+)
+```
+
+### Accessing JSON-files and their values
 Now w
 
 For a more detailed definition you may check www.JSON.org.

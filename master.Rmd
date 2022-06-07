@@ -1,7 +1,8 @@
 ---
-title: "Set Up"
+title: "GeoJSON-LD tutorial"
 output:
   learnr::tutorial:
+    css: ./css/styles.css
     progressive: true
     allow_skip: true
 runtime: shiny_prerendered
@@ -15,6 +16,8 @@ library(learnr)
 library(rjson)
 library(geojsonio)
 library(sp)
+library(rjson)
+library(imager)
 tutorial_options(exercise.timelimit = 60)
 ```
 
