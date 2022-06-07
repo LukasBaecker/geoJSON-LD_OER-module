@@ -13,7 +13,6 @@ description: >
 
 ```{r setup, include=FALSE}
 library(learnr)
-library(rjson)
 library(geojsonio)
 library(sp)
 library(rjson)
@@ -26,6 +25,18 @@ sceurope <- fromJSON(file = "./data/scEurope.json")
 ```
 
 ```{r child = 'part2_understandingJSON.Rmd'}
+```
+
+```{r child = 'part2_understandingJSON_JSON.Rmd'}
+```
+
+```{r child = 'part2_understandingJSON_GeoJSON.Rmd'}
+```
+
+```{r child = 'part2_understandingJSON_JSON_LD.Rmd'}
+```
+
+```{r child = 'part2_understandingJSON_GEOJSON_LD.Rmd'}
 ```
 
 ```{r child = 'part3_createGeoJSON.Rmd'}

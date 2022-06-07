@@ -1,0 +1,34 @@
+---
+title: "part2_understandingJSON_JSON_LD"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+runtime: shiny_prerendered
+description: >
+  Learn how to set up R and RStudio on your machine. We will also demonstrate
+  how to install R packages from CRAN, and install the tidyverse package.
+---
+##   2.3. JSON-LD
+Now that we worked out the idea of JSON and its GeoJSON specification we are ready to have a look at linked data. So, before getting into JSON-LD and GeoJSON-LD, we should have a look at the general concept of linked data.
+Check out the video by [Manu Sporny](https://www.youtube.com/c/ManuSporny) that gives you a neat overview.
+![](https://youtu.be/4x_xzT5eF5Q)
+
+Linked Data Signature
+![](https://youtu.be/QdUZaYeQblY)
+
+What is JSON-LD
+![](https://youtu.be/vioCbTo3C-4)
+
+JSON-LD Basic Markup
+![](https://youtu.be/UmvWk_TQ30A)
+
+JSON-LD Compaction and Expansion
+![](https://youtu.be/Tm3fD89dqRE)
+
+
+
+
+```{r todo123}
+#TODO: NOCHMAL DETAILIERTER BESCHREIBEN UND SCHRITT FÜR SCHRITT ERKLÄREN WIE NE JSON-LD AUFGEBAUT IST
+```
