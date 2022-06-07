@@ -12,21 +12,23 @@ description: >
 
 ## 2. Understanding the Concepts
 ```{r 1stpic, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
-myimg <- load.image("graphics/undraw_learning_sketching_nd4f.png")
-plot(myimg,axes=FALSE)
+#myimg <- load.image("graphics/undraw_learning_sketching_nd4f.png")
+#plot(myimg,axes=FALSE)
 ```
 In this chapter we want to learn the concepts of JSON. GeoJSON, JSON-LD and GeoJSON-LD. It is important to read them carefully because the different concepts build on each other and can't be viewed individually.
 
-### JSON
-
-#### Definition
 ```{r JSONpic, echo=FALSE, fig.align = "center", out.width="100%"}
 myimg <- load.image("graphics/undraw_learning_sketching_nd4f.png")
 plot(myimg,axes=FALSE)
 ```
+
+### JSON
+
+#### Definition
+
 JSON is a text-format for storing and sharing data in the web. It is developed to be understood by humans AND computers equally. The following definition is cited from www.JSON.org:
     
-::: {#JSONdefinition .greeting .message style="color: black; background-color: #EAFFA2; padding: 5%; border-radius: 10px; margin: 20px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
+::: {#JSONdefinition .message}
 JSON (JavaScript Object Notation) is a standardized lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.
 
 JSON is built on two structures:
@@ -59,41 +61,55 @@ This is a JSON example showing
         "handball",
         "basketball"
     ],
-    "fouded": "21-01-2005"
+    "founded": "21-01-2005"
 }  
 ```
 As you can see, the example is easy to read and understand. Just a quick question: What do you think is this JSON-file storing? Probably no ticket-system or a bar's menu. It is not always said that with reading the JSON-file you will understand exactly what the data is about and what it is used for, especially when the stored data gets more abstract. For example it is not very clear what is meant by color at this point. It might describe the lead color of the club but we do not now that from the data. Still, you mostly could get a first impression of the data by having a glimpse at the file itself.
 
-####Setting up a JSON-file
+#### Setting up a JSON-file
 What do we see in the example?
-First, we can see, that the object is, as defined before is wrapped in {}. Then, we see that the object has multiple attributes that has a specific name and a value both in "" and divided by :. The left side of the colon shows the name of the attribute while the right side shows the value. We can see, that a value can be a list (an array) of values enclosed by [] and that a value can also be an object itself. Do you see that the attribute "members" has an array of objects as value?
+First, we can see, that the object is, as defined before, wrapped in {}. Then, we see that the object has multiple attributes that have a specific name and a value both in "" and divided by :. The left side of the colon shows the name of the attribute while the right side shows the value. We can see, that a value can be a list (an array) of values enclosed by [] and that a value can also be an object itself. Do you see that the attribute "members" has an array of objects as value?
 
 Lets have a quick and simple task to get hands on JSON yourself:
-In the following codeblock you can put in a 
-Create a 
+In the following codeblock you can write the JSON file as the following tasks wants you to 
 
-```{r quiz_json_creating, echo=FALSE}
+:::{#luigisTask .task-message .panel}
+:::{.panel-body}
+Write a valid JSON file that reflects the following description: 
+The JSON-file should describe a restaurant, that is called Pizza Luigi, and that stores their dishes: the first one is pizza (obviously), the second one pasta (what else) and the third one is tiramisu (delizioso). If you are done check the sollution. Additionally, there are some properties stored for the dishes: The price (pizza costs 7€, pasta 6 and tiramisu 10 because it is one of the best), the information, if it is also available as vegan dish (pizza not, pasta is and tiramisu also can be ordered vegan).
 
-#TODO TODO TODO
-#DAS LÄFUT NICHT SO WIE ICH MIR DAS VORGESTELLT HABE WEIL DIE ANSWER NICHT MIT DEN """""" IM TEXT SELBST KLAR KOMMT UND MAN DAS DANN #IM ENDEFFEKT NICHT SO EINGEBEN KANN WIE ES RICHTIG WÄRE
+```{json taskLuigi, exercise = TRUE}
 
-quiz(
-    caption = "Setting up a JSON",
-    question_text("Write a valid JSON file that reflects the following description (don't use any spaces, except for values if needed or interlaces): The JSON-file should describe a restaurant, that has the name 'Pizza Luigi', and that stores their dishes: the first one is pizza (obviously), the second paste (what else) and the third one is tiramisu (deliciosa). Pay attention to the case sensitivity! of the single values",
-        answer("{'name':'Pizza Luigi','dishes':['pizza','pasta','tiramisu']}", correct = TRUE),
-        correct = "You nailed it!",
-        incorrect = 'There is something wrong. Check it again. Forgot maybe and "" ?',
-        placeholder='{"name":"Testname","members":[{"name":"Allan", "email":"All91cutekitties@gmail.com"},{"name":"Steve","email":"Steve.Without.N@outlook.com"}...',
-        allow_retry = TRUE,
-        trim = TRUE
-    )
-)
+```
+```{json taskLuigi-solution}
+{
+    "name":"Pizza Luigi",
+    "dishes":[
+        {"name":"pizza","price":"7","vegan_option":"false"},
+        {"name":"pasta","price":"6","vegan_option":"true"},
+        {"name":"tiramisu","price":"10","vegan_option":"true"}
+     ]
+}
 ```
 
-### Accessing JSON-files and their values
-Now w
+<div id="taskLuigi-hint">
+**Hint:** Objects can be in a list and a value for a properties.
+</div>
 
-For a more detailed definition you may check www.JSON.org.
+:::
+:::
+
+### Accessing JSON-files and their values
+```{r loadingJSONfile, include=FALSE}
+
+```
+
+```{r workingJSON, include=TRUE}
+sceurope <- fromJSON(file = "./data/scEurope.json")
+print(sceurope)
+```
+
+If you need any further information or want to dig deeper into the JSON-format www.JSON.org is a good starting point for you.
 
 ```{r quiz_json, echo=FALSE}
 quiz(caption = "Quiz - JSON",
@@ -103,16 +119,14 @@ quiz(caption = "Quiz - JSON",
     answer("Java Standartizised Object Notation", message = "Do you think this has something to do with Java?" ),
     allow_retry = TRUE
   ),
-    question("How often should you update R?",
-    answer("Everytime you use it", message = "This will be too often unless you use R very rarely!"),
-    answer("About once a year", correct = TRUE, "A new version of R is released about once a year. Update sooner if you encounter a bug that you cannot explain."),
-    answer("Never", message = "A new version of R is released about once a year. I'll assume that you are using the newest version of R, which will be the fastest version with the fewest unexpected behaviors." ),
+    question("Is it legal to have nested JSON objects?",
+    answer("Yes",correct = TRUE, "As seen, an object can be the value of a property of another object"),
+    answer("No", message="As seen, an object can be the value of a property of another object"),
     allow_retry = TRUE
   ),
-    question("How often should you update R?",
-    answer("Everytime you use it", message = "This will be too often unless you use R very rarely!"),
-    answer("About once a year", correct = TRUE, "A new version of R is released about once a year. Update sooner if you encounter a bug that you cannot explain."),
-    answer("Never", message = "A new version of R is released about once a year. I'll assume that you are using the newest version of R, which will be the fastest version with the fewest unexpected behaviors." ),
+    question("Can we dynamically access JSON-files?",
+    answer("No, we can't", message = "Take a look at the tasks above, one more time."),
+    answer("Yes, we can!", correct = TRUE, "And this is the awesome part about JSON!"),
     allow_retry = TRUE
   )
 )

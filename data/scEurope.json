@@ -1,0 +1,18 @@
+{
+    "name": "SC Europe",
+    "members":[  
+        {"name":"Allan", "email":"All91cutekitties@gmail.com"},  
+        {"name":"Steve", "email":"Steve.Without.N@outlook.com"},  
+        {"name":"Alen", "email":"alTHEman@googlemail.com"}  
+    ],
+    "color": "green",
+    "sports":[
+        "football",
+        "tennis",
+        "badminton",
+        "tabletennis",
+        "handball",
+        "basketball"
+    ],
+    "founded": "21-01-2005"
+}  
