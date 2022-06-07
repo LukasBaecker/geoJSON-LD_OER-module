@@ -10,15 +10,129 @@ description: >
   how to install R packages from CRAN, and install the tidyverse package.
 ---
 ##   2.3. JSON-LD
-Now that we worked out the idea of JSON and its GeoJSON specification we are ready to have a look at linked data. So, before getting into JSON-LD and GeoJSON-LD, we should have a look at the general concept of linked data.
+
+### Linked Data
+
+Now that we worked out the idea of JSON and its GeoJSON specification we are ready to have a look at linked data. The magic is happening right now!
+
+```{r JSONLDpicIntro, echo=FALSE, out.width= "100%", out.extra='style="float:center;"'}
+myimg2 <- load.image("graphics/undraw_Inspiration_re_ivlv.png")
+grid.raster(myimg2)
+```
+So, before getting into JSON-LD and GeoJSON-LD, we should have a look at the general concept of linked data.
 Check out the video by [Manu Sporny](https://www.youtube.com/c/ManuSporny) that gives you a neat overview.
+
 ![](https://youtu.be/4x_xzT5eF5Q)
 
-Linked Data Signature
+<details>
+  <summary>Click to show the video below</summary>
+  
+  Linked Data Signature
+  another Video by [Manu Sporny](https://www.youtube.com/c/ManuSporny)
 ![](https://youtu.be/QdUZaYeQblY)
+</details>
 
-What is JSON-LD
+### JSON-LD
+
+Finally, we get to know about JSON-LD. The LD stands for 'Linked Data' (couldn't be better) and luckily we just learned what Linked Data is about. So let's jump into it.
+If you would like to watch a video from [Manu Sporny](https://www.youtube.com/c/ManuSporny) explaining JSON-LD hit the play button.
+
 ![](https://youtu.be/vioCbTo3C-4)
+
+To get a more practical view on the JSON-LD format, let's retrieve our SC EUrope example again.Here it is:
+
+```json
+{
+    "name": "SC Europe",
+    "members":[  
+        {"name":"Allan", "email":"All91cutekitties@gmail.com"},  
+        {"name":"Steve", "email":"Steve.Without.N@outlook.com"},  
+        {"name":"Alen", "email":"alTHEman@googlemail.com"}  
+    ],
+    "color": "green",
+    "sports":[
+        "football",
+        "tennis",
+        "badminton",
+        "tabletennis",
+        "handball",
+        "basketball"
+    ],
+    "founded": "21-01-2005"
+}  
+```
+Already here, we can argue that the properties `name` could be confusing as it has different meanings for the club and its members. On the one hand we have a title of a club and on the other hand we have a human's first name. Compare the next three examples and keep that thought in mind.
+
+:::{.quickquestion}
+Can you spot the differences and think of problems that might arise?
+:::
+
+Example 1:
+```json 
+{
+    "name": "SC Europe",
+    "members":[  
+        {"name":"Allan", "email":"All91cutekitties@gmail.com"},  
+        {"name":"Steve", "email":"Steve.Without.N@outlook.com"},  
+        {"name":"Alen", "email":"alTHEman@googlemail.com"}  
+    ],
+    "color": "green",
+    "sports":[
+        "football",
+        "tennis",
+        "badminton",
+        "tabletennis",
+        "handball",
+        "basketball"
+    ],
+    "founded": "21-01-2005"
+}  
+```
+
+Example 2:
+```json 
+{
+    "name": "SC Europe",
+    "members":[  
+        {"name":"Allan", "email":"All91cutekitties@gmail.com"},  
+        {"name":"Steve", "email":"Steve.Without.N@outlook.com"},  
+        {"name":"Alen", "email":"alTHEman@googlemail.com"}  
+    ],
+    "color": "green",
+    "sports":[
+        "football",
+        "tennis",
+        "badminton",
+        "tabletennis",
+        "handball",
+        "basketball"
+    ],
+    "founded": "21-01-2005"
+}  
+```
+
+Example 3:
+```json 
+{
+    "name": "SC Europe",
+    "members":[  
+        {"name":"Allan", "email":"All91cutekitties@gmail.com"},  
+        {"name":"Steve", "email":"Steve.Without.N@outlook.com"},  
+        {"name":"Alen", "email":"alTHEman@googlemail.com"}  
+    ],
+    "color": "green",
+    "sports":[
+        "football",
+        "tennis",
+        "badminton",
+        "tabletennis",
+        "handball",
+        "basketball"
+    ],
+    "founded": "21-01-2005"
+}  
+```
+
 
 JSON-LD Basic Markup
 ![](https://youtu.be/UmvWk_TQ30A)
@@ -32,3 +146,4 @@ JSON-LD Compaction and Expansion
 ```{r todo123}
 #TODO: NOCHMAL DETAILIERTER BESCHREIBEN UND SCHRITT FÜR SCHRITT ERKLÄREN WIE NE JSON-LD AUFGEBAUT IST
 ```
+

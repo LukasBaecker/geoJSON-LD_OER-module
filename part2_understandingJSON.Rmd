@@ -11,8 +11,8 @@ description: >
 ---
 
 ## 2. Understanding the Concepts
-```{r 1stpic, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
+```{r 1stpic, echo=FALSE, out.width= "100%", out.extra='style="float:center;"'}
 myimg2 <- load.image("graphics/undraw_Maker_launch_re_rq81.png")
 grid.raster(myimg2)
 ```
-In this chapter we want to learn the concepts of JSON, GeoJSON, JSON-LD and GeoJSON-LD. It is important to read them carefully because the different concepts build on each other and can't be viewed individually. After this chapter you will know how to bring some structure into your chaotic data you may have and you also will be able to understand others structured chaos (hopefully) better.
+In this chapter we want to learn the concepts of JSON, GeoJSON, JSON-LD and GeoJSON-LD. It is important to read them carefully because the different concepts build on each other and can't be viewed individually. After this chapter you will know how to bring some structure into your chaotic data you may have and you also will be able to understand others structured chaos (hopefully) better.Prepare and get ready to take of.

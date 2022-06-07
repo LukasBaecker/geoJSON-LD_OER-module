@@ -1,5 +1,6 @@
 body {
-  background-color: white;
+  background-color: #333;
+  color:white;
   font-size: 12pt;
 text-align: justify;
 }
@@ -44,7 +45,7 @@ h1, h2, h3, h4, h5{
 .hljs-string, .ace_string{
     color: #F9A826 !important;
 }
-.hljs-number, .ace_numeric {
+.hljs-number, .ace_numeric, .hljs-keyword {
     color: rgb(52, 187, 174) !important;   
 }
 .json, .r, .ace_content{
@@ -56,3 +57,16 @@ h1, h2, h3, h4, h5{
     margin-left: 30px;
     margin-right: 30px;
 }
+
+summary{
+    background-color: #F9A826;
+    color: white;
+    text-align: center;
+    padding: 3px;
+    font-size: 14pt;
+}
+summary:hover{
+    cursor: pointer;
+    background-color: #FFC341;
+}
+
