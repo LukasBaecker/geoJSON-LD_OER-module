@@ -9,13 +9,15 @@ description: >
   Learn how to set up R and RStudio on your machine. We will also demonstrate
   how to install R packages from CRAN, and install the tidyverse package.
 ---
-##   2.2. GeoJSON
+
+## 2.2. GeoJSON
+
 ```{r geopic, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
 geoimg <- load.image("graphics/undraw_real_time_analytics_re_yliv.png")
 grid.raster(geoimg)
 ```
-GeoJSON is the JSON specialization for storing geographical data data. Additional to the JSON rules there are some more that defines a GeoJSON. A GeoJSON has to have a 'type' attribute than can be a value of these: [`Point`, `MultiPoint`, `LineString`, `MultiLineString`, `Polygon`, `MultiPolygon`, `GeometryCollection`, `Feature`, `FeatureCollection`]. Furthermore the position is important for a GeoJSON where coordinates are allway given in `WGS84` due to the fact that other CRS harm the interoperability of the GeoJSON.
-Below you can see the official definition from [GeoJSON.org](https://geojson.org/):
+
+GeoJSON is the JSON specialization for storing geographical data data. Additional to the JSON rules there are some more that defines a GeoJSON. A GeoJSON has to have a 'type' attribute than can be a value of these: [`Point`, `MultiPoint`, `LineString`, `MultiLineString`, `Polygon`, `MultiPolygon`, `GeometryCollection`, `Feature`, `FeatureCollection`]. Furthermore the position is important for a GeoJSON where coordinates are allway given in `WGS84` due to the fact that other CRS harm the interoperability of the GeoJSON. Below you can see the official definition from [GeoJSON.org](https://geojson.org/).:
 
 ::: {#GeoJSONdefinition .message}
 GeoJSON is a format for encoding a variety of geographic data structures.GeoJSON supports the following geometry types: Point, LineString, Polygon, MultiPoint, MultiLineString, and MultiPolygon. Geometric objects with additional properties are Feature objects. Sets of features are contained by FeatureCollection objects.
@@ -24,14 +26,17 @@ GeoJSON is a format for encoding a variety of geographic data structures.GeoJSON
 Now, lets have a look at an example for a GeoJSON. The first one shows a valid point and the second one a feature with a geometry that is also a point. The difference lays in the structure and the additional information that are included.
 
 A point saved in a GeoJSON as a `Point`:
-```json
+
+``` json
 {
     "type": "Point",
     "coordinates": [125.6, 10.1]
 }
 ```
+
 A point saved as a `Feature` with additional information:
-```json
+
+``` json
 {
   "type": "Feature",
   "geometry": {
@@ -42,11 +47,11 @@ A point saved as a `Feature` with additional information:
     "name": "Dinagat Islands"
   }
 }
-
 ```
 
 Another example shows a regular `MultiPolygon`. It has multiple arrays of points that are also saved inside of arrays. At this point it is important to keep track of the brackets to get not confused and supply the computer with wrong information buy using a wrong structure.
-```json
+
+``` json
     {
          "type": "MultiPolygon",
          "coordinates": [
@@ -77,20 +82,18 @@ Another example shows a regular `MultiPolygon`. It has multiple arrays of points
              ]
          ]
      }
-
 ```
+
 I you want to read the whole GeoJSON specification you can [follow this link to the GeoJSON specification (RFC 7946)](https://datatracker.ietf.org/doc/html/rfc7946)
 
-POSSIBLE QUESTIONS AT THE END:
-what do we see in a code snipped 
-what is legal or illigal with geojson 
+POSSIBLE QUESTIONS AT THE END: what do we see in a code snipped what is legal or illigal with geojson
 
 If you would like to see the official definition of GeoJSON you may have [a look at this page](https://datatracker.ietf.org/doc/html/rfc7946).
 
 TODO: NOCHMAL DETAILIERTER BESCHREIBEN UND SCHRITT FÜR SCHRITT ERKLÄREN WIE NE GEOJSON AUFGEBAUT IST
 
-
 ### Setting up a GEOJSON-file
+
 ```{r JSONpagePic, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
 myimg2 <- load.image("graphics/undraw_Pair_programming_re_or4x.png")
 grid.raster(myimg2)
@@ -98,14 +101,14 @@ grid.raster(myimg2)
 
 Let's dive into some examples for you to understand the concepts presented. As you can see, the idea of using `{}` to represent objects, `""` to specify the attributes names and other concepts already presented in the section 2.1 are still valid. Remember the geometry differences that we can use and the way we can represent them by using the the combination of `{}`, `[]`, and `,`. In the following code block you can write the GEOJSON file as the tasks guides you.
 
-:::{#SupermarketTask .task-message .panel}
-:::{.panel-body}
-Write a valid GEOJSON file that reflects the following description: 
-Suppose that you want to create a GEOJSON file with some supermarkets available in the region that you live, 
+::: {#SupermarketTask .task-message .panel}
+::: panel-body
+Write a valid GEOJSON file that reflects the following description: Suppose that you want to create a GEOJSON file with some supermarkets available in the region that you live,
 
 ```{json taskLuigi, exercise = TRUE}
 
 ```
+
 ```{json taskLuigi-solution}
 {
     "name":"Pizza Luigi",
