@@ -10,36 +10,75 @@ description: >
   how to install R packages from CRAN, and install the tidyverse package.
 ---
 ##   2.3. JSON-LD
+```{r JSONLDpicIntro, echo=FALSE, out.width= "100%", out.extra='style="float:center;"'}
+myimg2 <- load.image("graphics/undraw_Visionary_technology_re_jfp7.png")
+grid.raster(myimg2)
+```
 
 ### Linked Data
 
 Now that we worked out the idea of JSON and its GeoJSON specification we are ready to have a look at linked data. The magic is happening right now!
 
-```{r JSONLDpicIntro, echo=FALSE, out.width= "100%", out.extra='style="float:center;"'}
-myimg2 <- load.image("graphics/undraw_Inspiration_re_ivlv.png")
-grid.raster(myimg2)
-```
+The exchange of data on the web offers massive opportunities but it is also one of the biggest challenges. How do we transfer data in the most understandable way? How do people interpret data they get from the internet? Linked data is a attempt to master these hurdles and it also can help us making JSON files a human AND computer comprehensible.
+
+Imagine using data from different sources in your system and trying to put them together. First this may not sound very problematic to you (but it totally should). Imagine every JSON you collect has a property `name` but for each source this means something else. Or think of using data that contains information for the same thing but the data comes from different sources and it would be so enriching to combine these data to have a more powerfull databasis.
+
+:::{.quickquestion}
+How would you bring these data together?
+:::
+
+That sounds like a lot of manual work giving the computer more detailed information, does it? That is the point where linked data comes into play. It gives data a context that describes this data and also it linkes datasets from different sources.
 So, before getting into JSON-LD and GeoJSON-LD, we should have a look at the general concept of linked data.
 Check out the video by [Manu Sporny](https://www.youtube.com/c/ManuSporny) that gives you a neat overview.
 
 ![](https://youtu.be/4x_xzT5eF5Q)
 
+Also, let's have a look at the official description from the [W3Consortium's webpage](https://www.w3.org/standards/semanticweb/data):
+
+::: {#JSONLDdefinition .message}
+The Semantic Web is a Web of Data — of dates and titles and part numbers and chemical properties and any other data one might conceive of. The collection of Semantic Web technologies (RDF, OWL, SKOS, SPARQL, etc.) provides an environment where application can query that data, draw inferences using vocabularies, etc.
+
+However, to make the Web of Data a reality, it is important to have the huge amount of data on the Web available in a standard format, reachable and manageable by Semantic Web tools. Furthermore, not only does the Semantic Web need access to data, but relationships among data should be made available, too, to create a Web of Data (as opposed to a sheer collection of datasets). This collection of interrelated datasets on the Web can also be referred to as Linked Data.
+
+To achieve and create Linked Data, technologies should be available for a common format (RDF), to make either conversion or on-the-fly access to existing databases (relational, XML, HTML, etc). It is also important to be able to setup query endpoints to access that data more conveniently. W3C provides a palette of technologies (RDF, GRDDL, POWDER, RDFa, the upcoming R2RML, RIF, SPARQL) to get access to the data. 
+:::
+
+If you want more information about linked data then you can brows the [W3Consortium's webpage](https://www.w3.org/standards/semanticweb/data) or have a look at another video by Manu Sporny which explains the signatures of linked data by clicking on the orange bar right below this. 
+
 <details>
-  <summary>Click to show the video below</summary>
-  
-  Linked Data Signature
-  another Video by [Manu Sporny](https://www.youtube.com/c/ManuSporny)
+  <summary>Click to reveal the second video</summary>
+  :::{.collapsemessage}
+How would you bring these data together?
+  Linked Data Signatures. Another Video by [Manu Sporny](https://www.youtube.com/c/ManuSporny)
 ![](https://youtu.be/QdUZaYeQblY)
+:::
 </details>
+
+Still the idea of linked data seems pretty abstract, right? If you want to dig into an example unfold the next section and feel free to check out some tutorials or videos for the presented website on the internet. Here you can get a good feeling of linked data: 
+
+<details>
+  <summary>Click if you want an example for linked data beyond this tutorial</summary>
+:::{.collapsemessage}
+A interesting example for linked data is [DBPedia](https://www.dbpedia.org/). It makes Wikipedia's content available in [RDF format](https://www.w3.org/RDF/). The magic of it lays in combining Wikipedia content with data from other sources on the web. So, DBPedia is extending the knowledge base of Wikipedia with additional links to other datasets on the web which leads to a better experience discovering knowledge.
+:::
+</details>
+
 
 ### JSON-LD
 
-Finally, we get to know about JSON-LD. The LD stands for 'Linked Data' (couldn't be better) and luckily we just learned what Linked Data is about. So let's jump into it.
-If you would like to watch a video from [Manu Sporny](https://www.youtube.com/c/ManuSporny) explaining JSON-LD hit the play button.
+Finally, we get to know about JSON-LD. The 'LD' stands for 'Linked Data' (couldn't be easier) and luckily we just learned what Linked Data is about. So let's jump into it.
+
+The video by [Manu Sporny](https://www.youtube.com/c/ManuSporny) explains the basics of JSON-LD:
 
 ![](https://youtu.be/vioCbTo3C-4)
 
-To get a more practical view on the JSON-LD format, let's retrieve our SC EUrope example again.Here it is:
+Let's also have a look at the official definition of JSON-LD from [JSON-LD.org](https://json-ld.org/):
+
+:::{.message}
+JSON-LD is a lightweight Linked Data format. It is easy for humans to read and write. It is based on the already successful JSON format and provides a way to help JSON data interoperate at Web-scale. JSON-LD is an ideal data format for programming environments, REST Web services, and unstructured databases such as Apache CouchDB and MongoDB.
+:::
+
+To get a more practical view on the JSON-LD format, let's retrieve our SC EUrope example again. Here it is:
 
 ```json
 {
@@ -64,86 +103,143 @@ To get a more practical view on the JSON-LD format, let's retrieve our SC EUrope
 Already here, we can argue that the properties `name` could be confusing as it has different meanings for the club and its members. On the one hand we have a title of a club and on the other hand we have a human's first name. Compare the next three examples and keep that thought in mind.
 
 :::{.quickquestion}
-Can you spot the differences and think of problems that might arise?
+Can you spot the differences and think of problems that might arise? Or can you think of any chances of having linked data?
 :::
 
-Example 1:
+Example 1 (JSON):
 ```json 
 {
-    "name": "SC Europe",
-    "members":[  
-        {"name":"Allan", "email":"All91cutekitties@gmail.com"},  
-        {"name":"Steve", "email":"Steve.Without.N@outlook.com"},  
-        {"name":"Alen", "email":"alTHEman@googlemail.com"}  
-    ],
-    "color": "green",
-    "sports":[
-        "football",
-        "tennis",
-        "badminton",
-        "tabletennis",
-        "handball",
-        "basketball"
-    ],
-    "founded": "21-01-2005"
+    "name": "Kevin",
+    "born": "21-01-2005",
+    "eyecolor": "green",
+    "size":"185"
 }  
 ```
 
-Example 2:
+Example 2 (JSON):
 ```json 
 {
-    "name": "SC Europe",
-    "members":[  
-        {"name":"Allan", "email":"All91cutekitties@gmail.com"},  
-        {"name":"Steve", "email":"Steve.Without.N@outlook.com"},  
-        {"name":"Alen", "email":"alTHEman@googlemail.com"}  
-    ],
-    "color": "green",
-    "sports":[
-        "football",
-        "tennis",
-        "badminton",
-        "tabletennis",
-        "handball",
-        "basketball"
-    ],
-    "founded": "21-01-2005"
+    "name": "Kevin_Star_05",
+    "birthday": "21-01-2005",
+    "groups": ["R_lovers","javascript_masterrace","PFP - passion for python"],
+    "profile_created":"01-05-2015"
 }  
 ```
 
-Example 3:
+Example 3 (JSON):
 ```json 
 {
-    "name": "SC Europe",
-    "members":[  
-        {"name":"Allan", "email":"All91cutekitties@gmail.com"},  
-        {"name":"Steve", "email":"Steve.Without.N@outlook.com"},  
-        {"name":"Alen", "email":"alTHEman@googlemail.com"}  
-    ],
-    "color": "green",
-    "sports":[
-        "football",
-        "tennis",
-        "badminton",
-        "tabletennis",
-        "handball",
-        "basketball"
-    ],
-    "founded": "21-01-2005"
+    "name": "Kevin Star",
+    "position":"keeper",
+    "matches_played":"512",
+    "goals_scored":"1"
+}  
+```
+What we see are three different JSON-files that are meant to describe the same person, but in a different context from a different database. [Schema.org](https://schema.org/) helps us in setting JSON files into the right context. 
+
+[Schema.org](https://schema.org/) describes itself as following:
+
+:::{.message}
+ Schema.org is a collaborative, community activity with a mission to create, maintain, and promote schemas for structured data on the Internet, on web pages, in email messages, and beyond.
+
+Schema.org vocabulary can be used with many different encodings, including RDFa, Microdata and JSON-LD. These vocabularies cover entities, relationships between entities and actions, and can easily be extended through a well-documented extension model. Over 10 million sites use Schema.org to markup their web pages and email messages. Many applications from Google, Microsoft, Pinterest, Yandex and others already use these vocabularies to power rich, extensible experiences. 
+:::
+
+### Type
+
+As a first step we can now add a `type` to our JSON file. Each of the JSON datasets is describing a person so we can search [Schema.org](https://schema.org/) for `Person` and add the link of the type to our JSON file. THis step will just be explained with the first example.
+
+Example 1 (with Type):
+```json 
+{
+  "@type": "https://schema.org/Person",
+    "name": "Kevin",
+    "born": "21-01-2005",
+    "eyecolor": "green",
+    "size":"185"
 }  
 ```
 
+### Context
+
+Image you want to have a complete profile of Kevin (we are not thinking about privacy issues for now). You could easily load all those JSON files into your system and connect the information by adding some code to your program. But what if you want to collect data for a whole group of people? Or for all the stars and planets out there? The amount of data and the linked work could be massively bigger. So we are adding a context to all of the three JSON files shown in the next three examples with the JSON-LD format in mind:
+
+Example 1 (with Context):
+```json 
+{
+  "@context": {
+    "name": "https://schema.org/givenName",
+    "born": "https://schema.org/birthDate",
+    "eyecolor": "https://schema.org/color",
+    "size": "https://schema.org/height"
+  },
+"@type": "https://schema.org/Person",
+    "name": "Kevin",
+    "born": "21-01-2005",
+    "eyecolor": "green",
+    "size":"185"
+}  
+```
+
+Example 2 (with Context):
+```json 
+{
+  "@context": {
+    "name": "https://schema.org/givenName",
+    "birthday": "https://schema.org/birthDate",
+  },
+"@type": "https://schema.org/Person",
+    "name": "Kevin_Star_05",
+    "birthday": "21-01-2005",
+    "groups": ["R_lovers","javascript_masterrace","PFP - passion for python"],
+    "profile_created":"01-05-2015"
+}  
+```
+
+Example 3 (with Context):
+```json 
+{
+  "@context": {
+    "name": "https://schema.org/name",
+  },
+"@type": "https://schema.org/Person",
+    "name": "Kevin Star",
+    "position":"keeper",
+    "matches_played":"512",
+    "goals_scored":"1"
+}  
+```
+Now it is your turn to take these three examples and validate them. As you can see there is some context missing for some of the information and maybe some of them are not correct. Go to [the Schema.org validator](https://validator.schema.org/) and paste in the three examples one by one to check them. Can you find a way of passing the validation? Maybe the information on Schema.org itself can help you.
+
+### Usage of the JSON-LD format
+
+What we have seen now is the `context` and the `type` that was added to the JSON. Have a look at the following statement from [JSON-LD.org](https://json-ld.org/spec/latest/json-ld/#the-context):
+
+:::{.message}
+When two people communicate with one another, the conversation takes place in a shared environment, typically called "the context of the conversation". This shared context allows the individuals to use shortcut terms, like the first name of a mutual friend, to communicate more quickly but without losing accuracy. A context in JSON-LD works in the same way. It allows two applications to use shortcut terms to communicate with one another more efficiently, but without losing accuracy.
+:::
+
+But using short cut terms is just one advantage of linked data. If you want to find out more you may watch the following two videos by [Manu Sporny](https://www.youtube.com/c/ManuSporny). The first one is about the core markup and explains the type, how to give references, to use aliases and how to internalize a JSON file.
+
+<details>
+  <summary>Click to display the video about JSON-LD's core markup</summary>
+:::{.collapsemessage}
 
 JSON-LD Basic Markup
 ![](https://youtu.be/UmvWk_TQ30A)
+:::
+</details>
+
+The second video gives an overview of the concepts of compaction and expansion which gives you a good understanding of why we use a context, how a computer reads a JSON-LD and how you should understand a JSON-LD file.
+
+<details>
+  <summary>Click to display the video about Compaction and Expansion</summary>
+:::{.collapsemessage}
 
 JSON-LD Compaction and Expansion
 ![](https://youtu.be/Tm3fD89dqRE)
+:::
+</details>
 
 
-
-
-```{r todo123}
-#TODO: NOCHMAL DETAILIERTER BESCHREIBEN UND SCHRITT FÜR SCHRITT ERKLÄREN WIE NE JSON-LD AUFGEBAUT IST
-```
 
