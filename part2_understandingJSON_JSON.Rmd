@@ -81,7 +81,11 @@ In the following codeblock you can write the JSON file as the tasks guides you.
 :::{#luigisTask .task-message .panel}
 :::{.panel-body}
 Write a valid JSON file that reflects the following description: 
-The JSON-file should describe a restaurant, that is called Pizza Luigi, and that stores their dishes: the first one is pizza (obviously), the second one pasta (what else) and the third one is tiramisu (delizioso!). If you are done check the solution. Additionally, there are some properties stored for the dishes: The price (a pizza costs 7€, pasta 6€ and a piece of tiramisu 10€ because it is the best in town) and it holds the information, if there is a vegan option of the dish (for pizza there is non, for pasta ther is and tiramisu can be ordered vegan as well).
+The JSON-file should describe a restaurant, that is called Pizza Luigi, and that stores their dishes: the first one is pizza (obviously), the second one pasta (what else) and the third one is tiramisu (delizioso!). If you are done check the solution. Additionally, there are some properties stored for the dishes: The price (a pizza costs 7€, pasta 6€ and a piece of tiramisu 10€ because it is the best in town) and it holds the information, if there is a vegan option of the dish (for pizza there is non, for pasta there is and tiramisu can be ordered vegan as well).
+
+:::{.infomessage}
+You can use the code block to insert your code but running the block will never result in a correct answer when putting in JSON-code. When finished you can compare your JSON to the one you can find by pushing the `solution` button.
+:::
 
 ```{json taskLuigi, exercise = TRUE}
 
