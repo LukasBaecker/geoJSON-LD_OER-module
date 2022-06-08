@@ -5,3 +5,5 @@ The OER module is developed in rshiny and it counts with libraries such as "lear
 
 This project is developed by LuKas Baecker, Igor Quaresma, and Max Gadomski as  part of the course "Open Educational Resources for Spatial Data Infrastructures" in the Master of Geoinformatics and Spatial Data Science in the University of Muenster.
 
+The link for the application can be found [here](https://lukasbaecker.shinyapps.io/oer-json-ld/#section-introduction)
+
