@@ -136,7 +136,7 @@ description: >
   how to install R packages from CRAN, and install the tidyverse package.
 ---
 ##   2.2. GeoJSON
-```{r geopic, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
+```{r geopic2, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
 geoimg <- load.image("graphics/undraw_real_time_analytics_re_yliv.png")
 grid.raster(geoimg)
 ```

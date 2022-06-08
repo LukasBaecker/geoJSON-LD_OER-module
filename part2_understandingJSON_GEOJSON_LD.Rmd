@@ -52,7 +52,7 @@ question("What is true about GeoJSON?",
 
 The following GeoJSON file got some mistakes. Can you hunt them down to run the code correctly?
 ```{r exercise1, exercise = TRUE}
-result <- fromJSON('{
+result <- rjson::fromJSON('{
          "type": "MultiPolygon",
          "coordinates": [
              [

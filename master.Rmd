@@ -16,9 +16,11 @@ library(learnr)
 library(geojsonio)
 library(sp)
 library(rjson)
+library(RJSONIO)
 library(imager)
 library(grid)
-sceurope <- fromJSON(file = "./data/scEurope.json")
+library(leaflet)
+sceurope <- rjson::fromJSON(file = "./data/scEurope.json")
 ```
 
 ```{r child = 'part1_intro.Rmd'}

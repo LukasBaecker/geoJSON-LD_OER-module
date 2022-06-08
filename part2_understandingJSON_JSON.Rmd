@@ -64,7 +64,7 @@ What do you think might this JSON-file storing?
 Probably no ticket-system or a bar's menu. It is not always said that with reading the JSON-file you will understand exactly what the data is about and what it is used for, especially when the stored data gets more abstract. For example it is not very clear what is meant by color at this point. It might describe the lead color of the club but we do not know that by just looking at the JSON. Still, you mostly could get a first impression of the data by having a glimpse at the file itself.
 
 ### Setting up a JSON-file
-```{r JSONpagePic, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
+```{r JSONpagePic2, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
 myimg2 <- load.image("graphics/undraw_learning_sketching_nd4f.png")
 grid.raster(myimg2)
 ```
@@ -87,10 +87,10 @@ The JSON-file should describe a restaurant, that is called Pizza Luigi, and that
 You can use the code block to insert your code but running the block will never result in a correct answer when putting in JSON-code. When finished you can compare your JSON to the one you can find by pushing the `solution` button.
 :::
 
-```{json taskLuigi, exercise = TRUE}
+```{json taskLuigi2, exercise = TRUE}
 
 ```
-```{json taskLuigi-solution}
+```{json taskLuigi-solution2}
 {
     "name":"Pizza Luigi",
     "dishes":[
@@ -107,8 +107,8 @@ You can use the code block to insert your code but running the block will never 
 
 We saved the SC Europe JSON from the top to a file, and we can load it with `R` using the `rjson` package that we installed before and loaded it in this project with `library(rjson)`. Now we can access the json file and save it to a variable.
 
-```{r workingJSON, include=TRUE}
-rjson::sceurope <- fromJSON(file = "./data/scEurope.json")
+```{r workingJSON2, include=TRUE}
+sceurope <- rjson::fromJSON(file = "./data/scEurope.json")
 ```
 
 Now it is your turn to access this files information. 
@@ -119,7 +119,7 @@ Can you access and print ONLY Steve's email-address with the help of those two c
 
 The accessing of values from JSON in `R` is different than using `Javascript`, because the `rjson` parser is converting the JSON into a `R` object.
 
-```{r accessingSCEurope, exercise=TRUE}
+```{r accessingSCEurope2, exercise=TRUE}
 #show the whole dataset
 print(sceurope)
 #show only when the Club was founded
