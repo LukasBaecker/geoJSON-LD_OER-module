@@ -3,6 +3,6 @@
 .RData
 .Ruserdata
 master.html
-*.html
+.html
 master_files
 rsconnect
