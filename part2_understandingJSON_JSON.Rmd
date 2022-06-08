@@ -108,7 +108,7 @@ You can use the code block to insert your code but running the block will never 
 We saved the SC Europe JSON from the top to a file, and we can load it with `R` using the `rjson` package that we installed before and loaded it in this project with `library(rjson)`. Now we can access the json file and save it to a variable.
 
 ```{r workingJSON, include=TRUE}
-sceurope <- fromJSON(file = "./data/scEurope.json")
+rjson::sceurope <- fromJSON(file = "./data/scEurope.json")
 ```
 
 Now it is your turn to access this files information. 
