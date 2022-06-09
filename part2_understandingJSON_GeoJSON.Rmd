@@ -94,7 +94,7 @@ TODO: NOCHMAL DETAILIERTER BESCHREIBEN UND SCHRITT FÜR SCHRITT ERKLÄREN WIE NE
 
 ### Setting up a GEOJSON-file
 
-```{r JSONpagePic, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
+```{r JSONpagePic, echo=FALSE, out.width= "50%", out.extra='style="float:right; padding:10px"'}
 myimg2 <- load.image("graphics/undraw_Pair_programming_re_or4x.png")
 grid.raster(myimg2)
 ```
@@ -103,22 +103,71 @@ Let's dive into some examples for you to understand the concepts presented. As y
 
 ::: {#SupermarketTask .task-message .panel}
 ::: panel-body
-Write a valid GEOJSON file that reflects the following description: Suppose that you want to create a GEOJSON file with some supermarkets available in the region that you live,
+Write a valid GEOJSON file that reflects the following description: 
+Suppose that you want to create a GEOJSON file with some supermarkets available in the region that you live (Lidl, Aldi, REWE, Edeka), each one can be expressed respectively with the following coordinates (long,lat): 
+(51.97378466951452, 7.610330879688263),
+(51.97272718525647, 7.611111402511597)
+(51.96906545319789, 7.61224865913391),
+(51.96063373942282, 7.623602449893952).
+Hint: you can start creating the structure with all the points with a "FeatureCollection" type.
 
-```{json taskLuigi, exercise = TRUE}
+```{json SupermarketTask, exercise = TRUE}
 
 ```
 
-```{json taskLuigi-solution}
+```{json SupermarketTask-solution}
 {
-    "name":"Pizza Luigi",
-    "dishes":[
-        {"name":"pizza","price":"7","vegan_option":"false"},
-        {"name":"pasta","price":"6","vegan_option":"true"},
-        {"name":"tiramisu","price":"10","vegan_option":"true"}
-     ]
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"name":"Lidl"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.610330879688263,
+          51.97378466951452
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name":"Aldi"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.611111402511597,
+          51.97272718525647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name":"REWE"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.61224865913391,
+          51.96906545319789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name":"Edeka"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.623602449893952,
+          51.96063373942282
+        ]
+      }
+    }
+  ]
 }
 ```
+One great tool that can be used to help us writing the GEOJSON is the [geojson.io](https://geojson.io/#map=2/20.0/0.0).
+
 :::
 :::
 
