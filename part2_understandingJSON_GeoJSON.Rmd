@@ -122,7 +122,7 @@ hawaiIslands <- toJSON(geojson_read("./data/multipointsHawai.geojson"), collapse
 ```{r echo = FALSE, message = FALSE, warning = FALSE, results = 'asis', width = 4, height = 4}
 map <- leaflet(width = 1000, height = 500) %>% 
          addTiles() %>%
-         setView(lng = 7.615, lat = 51.95, zoom = 14) %>%
+         setView(lng =-157.412109375, lat =20.838277806058933, zoom = 14) %>%
          addGeoJSON(hawaiIslands)
 map
 ```
