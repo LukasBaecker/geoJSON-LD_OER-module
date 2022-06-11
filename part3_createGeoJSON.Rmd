@@ -11,7 +11,7 @@ points <- toJSON(geojson_read("./data/points.geojson"), collapse = "\n")
 route <- toJSON(geojson_read("./data/route.geojson"), collapse = "\n")
 ```
 
-Roland is working for a GeoIT company and he wants to collect and share geodata for touristic purposes. For that, he already collected some data in GeoJSON format and wants to share it using the GeoJSON-LD standard. At a first step, Roland collected the area of the Aasee in Münster as a GeoJSON polygon:
+Roland is working for a GeoIT company and he wants to collect and share geodata for touristic purposes. For that, he already collected some data in GeoJSON format and he would like to share it using the GeoJSON-LD standard. At a first step, Roland collected the area of the Aasee in Münster as a GeoJSON MultiPolygon:
 
 ```{json}
 {
