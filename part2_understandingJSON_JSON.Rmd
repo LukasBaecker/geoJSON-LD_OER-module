@@ -9,7 +9,7 @@ description: >
   Learn how to set up R and RStudio on your machine. We will also demonstrate
   how to install R packages from CRAN, and install the tidyverse package.
 ---
-##   2.1.JSON
+##   2.1. JSON
 
 ### Definition
 
