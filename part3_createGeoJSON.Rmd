@@ -130,4 +130,4 @@ Instead of linking to the remote file, we could also just take the contents of t
 
 Try to validate our GeoJSON-LD code again and see what happens.
 
-Amazing! We now have our first valid GeoJSON-LD file. But wait!
+Amazing! We now have our first valid GeoJSON-LD file. But wait, there is more!
