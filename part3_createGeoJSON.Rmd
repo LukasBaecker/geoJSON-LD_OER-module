@@ -14,14 +14,14 @@ points <- toJSON(geojson_read("./data/points.geojson"), collapse = "\n")
 route <- toJSON(geojson_read("./data/route.geojson"), collapse = "\n")
 ```
 
-Roland is working for a GeoIT company and he wants to collect and share geodata for touristic purposes. To accomplish that, he already collected some data in GeoJSON format but he would like to share it using the GeoJSON-LD standard. As a first step, Roland collected data for two different points of interest and put it into a GeoJSON multipoint file. The first one is the Institute for Geoinformatics and the second one is the lake Aasse in Münster:
+Michael wants to collect and share geodata for touristic purposes. To accomplish that, he already collected some data in GeoJSON format but he would like to share it using the GeoJSON-LD standard. As a first step, Michael collected data for two different points of interest and put it into a GeoJSON multipoint file. The first one is the Institute for Geoinformatics and the second one is the lake Aasse in Münster:
 
 ```{r echo = FALSE, message = FALSE, warning = FALSE, results = 'asis', width = 4, height = 4}
-map <- leaflet(width = 1000, height = 500) %>% 
+map1 <- leaflet(width = 1000, height = 500) %>% 
          addTiles() %>%
          setView(lng = 7.62, lat = 51.96, zoom = 14) %>%
          addGeoJSON(points)
-map
+map1
 ```
 <br>
 ```{json}
@@ -75,7 +75,7 @@ Try to validate our adjusted GeoJSON data using the [schema.org validator](https
 
 Did you encounter an error when trying to validate our adjusted data? Don't worry! This is just because schema.org does not allow for remote contexts, that are not hosted on schema.org itself. Based on tutorial chapter 2.3, think about how you could potentially resolve this problem (Hint: Have a look at the [GeoJSON context file](https://geojson.org/geojson-ld/geojson-context.jsonld)).
 
-### GeoJSON context
+### GeoJSON-LD context
 
 Instead of linking to the remote file, we could also just take the contents of the remote file and put it directly into our GeoJSON-LD file:
 
@@ -131,3 +131,110 @@ Instead of linking to the remote file, we could also just take the contents of t
 Try to validate our GeoJSON-LD code again and see what happens.
 
 Amazing! We now have our first valid GeoJSON-LD file. But wait, there is more!
+
+As you have seen before, another key feature of JSON-LD is typing. It defines how a specific JSON attribute should be interpreted by assigning an attribute type to it. "But how is this useful for sharing geogrpahic information?" you might ask. As you might have learned, the GeoJSON standard already is very regulated in defining certain features regarding it's syntax, making it easy to interpret by applications and humans alike. It only allows specific feature types, like `Feature`, `Point` or `Multipolygon` and has to include a geometry and properties. Problems arise with the definition of properties however, since property names can be freely chosen and there are no data types available for properties in regular GeoJSON. This makes it difficult to work with properties in regular GeoJSON, because there is no "standardized way" of how they are defined and interpreted. To illustrate that, have a look at the example below. 
+
+Michael also found a dataset about the lake Aasee on OpenStreetMap he would like to share. It contains a GeoJSON MultiPolygon, covering the area of the Aasee and including some useful additional information as properties, such as the name, maximum water depth and the type of water.
+
+```{r echo = FALSE, message = FALSE, warning = FALSE, results = 'asis', width = 4, height = 4}
+map2 <- leaflet(width = 1000, height = 500) %>% 
+         addTiles() %>%
+         setView(lng = 7.62, lat = 51.96, zoom = 13) %>%
+         addGeoJSON(points) %>%
+         addGeoJSON(aasee)
+map2
+```
+<br>
+```{json}
+{
+    "type": "Feature",
+    "properties": {
+        "name": "Aasee",
+        "maxdepth": "2",
+        "salt": "no"
+    },
+    "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+            [
+                [
+                    ...
+                ]
+            ]
+        ]
+    }
+}
+```
+<br>
+
+As you can see, the two attributes `maxdepth` and `salt` are defined as simple string values. It would probably be more convenient though, to define the maximum depth as an actual numeric value and the water type as a boolean value. 
+
+For example:
+```{json}
+{
+    "type": "Feature",
+    "properties": {
+        "name": "Aasee",
+        "maxdepth": 2,
+        "salt": FALSE
+    },
+    ...
+}
+```
+
+Things can get even more complicated if there are multiple attributes with different names and types but with the same meaning. For example you could have two different attributes for describing the water depth. One as a string and one as a numeric value:
+
+```{json}
+{
+    "type": "Feature",
+    "properties": {
+        "name": "Aasee",
+        "maxdepthmeters": 2,
+        "maximumdepth": "200cm",
+        "salt": FALSE
+    },
+    ...
+}
+```
+
+Similarly, you could encounter two different attributes for describing the water type (salt or fresh water):
+
+```{json}
+{
+    "type": "Feature",
+    "properties": {
+        "name": "Aasee",
+        "maxdepth": 2,
+        "isSalt": FALSE,
+        "watertype": "fresh"
+    },
+    ...
+}
+```
+
+As you can see, it can be very complicated and confusing to work with regular GeoJSON properties, because it is not transparent which properties to expect and how they are structured and to be interpreted. This is where JSON-LD typing comes in. Click on 'Continue' to learn more.
+
+### GeoJSON-LD Typing
+
+```{json}
+{
+    "@context": "https://geojson.org/geojson-ld/geojson-context.jsonld",
+    "type": "Feature",
+    "properties": {
+        "maxdepth": {
+            "@type":"xsd:integer",
+            "@value":"2"
+        }
+    },
+    "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+            [
+                [
+                    ...
+                ]
+            ]
+        ]
+    }
+}
+```
