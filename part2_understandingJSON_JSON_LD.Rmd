@@ -66,7 +66,7 @@ A interesting example for linked data is [DBPedia](https://www.dbpedia.org/). It
 
 ### JSON-LD
 
-Finally, we get to know about JSON-LD. The 'LD' stands for 'Linked Data' (couldn't be easier) and luckily we just learned what Linked Data is about. So let's jump into it.
+It`s time! Finally, we get to know about JSON-LD. The 'LD' stands for 'Linked Data' (couldn't be easier) and luckily we just learned what Linked Data is about. So let's jump into it.
 
 The video by [Manu Sporny](https://www.youtube.com/c/ManuSporny) explains the basics of JSON-LD:
 
@@ -147,7 +147,7 @@ Schema.org vocabulary can be used with many different encodings, including RDFa,
 
 ### Type
 
-As a first step we can now add a `type` to our JSON file. Each of the JSON datasets is describing a person so we can search [Schema.org](https://schema.org/) for `Person` and add the link of the type to our JSON file. THis step will just be explained with the first example.
+As a first step we can now add a `type` to our JSON file. Each of the JSON datasets is describing a person so we can search [Schema.org](https://schema.org/) for `Person` and add the link of the type to our JSON file. This step will just be explained with the first example.
 
 Example 1 (with Type):
 ```json 
@@ -209,6 +209,11 @@ Example 3 (with Context):
     "goals_scored":"1"
 }  
 ```
+Still not clear? not a problem my friend, try to imagine the following:
+When two people are talking with each other, if they already know some information about one another is common to see that the language they use is different from the one they would use in case they were talking with someone that they don`t know. The language is more simple. We can understand  the "simple" aspect as the possibility to communicate more quickly but of course without losing accuracy.
+
+When we are talking about anything we are basically considering the context that something happened or will happen, this can also be used with linked data in the JSON-LD format. So we are adding a context (by using the "@context") to all of the three JSON files shown in the next three examples with the JSON-LD format in mind. Try to understand the "@context" as a way to provide previous information to the lines of code that we will be writing.
+
 Now it is your turn to take these three examples and validate them. As you can see there is some context missing for some of the information and maybe some of them are not correct. Go to [the Schema.org validator](https://validator.schema.org/) and paste in the three examples one by one to check them. Can you find a way of passing the validation? Maybe the information on Schema.org itself can help you.
 
 ### Usage of the JSON-LD format
