@@ -209,20 +209,18 @@ Example 3 (with Context):
     "goals_scored":"1"
 }  
 ```
-Still not clear? not a problem my friend, try to imagine the following:
-When two people are talking with each other, if they already know some information about one another is common to see that the language they use is different from the one they would use in case they were talking with someone that they don`t know. The language is more simple. We can understand  the "simple" aspect as the possibility to communicate more quickly but of course without losing accuracy.d
-
-When we are talking about anything we are basically considering the context that something happened or will happen, this can also be used with linked data in the JSON-LD format. So we are adding a context (by using the "@context") to all of the three JSON files shown in the next three examples with the JSON-LD format in mind. Try to understand the "@context" as a way to provide previous information to the lines of code that we will be writing.
 
 Now it is your turn to take these three examples and validate them. As you can see there is some context missing for some of the information and maybe some of them are not correct. Go to [the Schema.org validator](https://validator.schema.org/) and paste in the three examples one by one to check them. Can you find a way of passing the validation? Maybe the information on Schema.org itself can help you.
 
 ### Usage of the JSON-LD format
 
-What we have seen now is the `context` and the `type` that was added to the JSON. Have a look at the following statement from [JSON-LD.org](https://json-ld.org/spec/latest/json-ld/#the-context):
+What we have seen now is the `context` and the `type` that was added to the JSON. Still not clear? Not a problem my friend. Have a look at the following statement from [JSON-LD.org](https://json-ld.org/spec/latest/json-ld/#the-context):
 
 :::{.message}
-When two people communicate with one another, the conversation takes place in a shared environment, typically called "the context of the conversation". This shared context allows the individuals to use shortcut terms, like the first name of a mutual friend, to communicate more quickly but without losing accuracy. A context in JSON-LD works in the same way. It allows two applications to use shortcut terms to communicate with one another more efficiently, but without losing accuracy.
+When two people communicate with one another, the conversation takes place in a shared environment, typically called "the context of the conversation". This shared context allows the individuals to use shortcut terms, like the first name of a mutual friend, to communicate more quickly but without losing accuracy. A context in JSON-LD works in the same way. It allows two applications to use shortcut terms to communicate with one another more efficiently, but without losing accuracy
 :::
+
+In other words, when we are talking about anything we are basically considering the context that something happened or will happen, this can also be used with linked data in the JSON-LD format. So in the examples above we used the "@context" key to all of the three show JSON files.
 
 But using short cut terms is just one advantage of linked data. If you want to find out more you may watch the following two videos by [Manu Sporny](https://www.youtube.com/c/ManuSporny). The first one is about the core markup and explains the type, how to give references, to use aliases and how to internalize a JSON file.
 
