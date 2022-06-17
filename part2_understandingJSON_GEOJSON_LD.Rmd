@@ -11,75 +11,44 @@ description: >
 ---
 ##   2.4. GeoJSON-LD
 
-```{r quiz2, echo=FALSE}
-quiz(caption = "Quiz - Install R",
-  question("Is R free to download and use?",
-    answer("Yes!", correct = TRUE, message = "R is free _and_ open source, which means that anyone can read, use, and copy the source code of the R language."),
-    answer("No.")
-  ),
-  question("Where do you download R?",
-    answer("www.rstudio.com/download"),
-    answer("[cloud.r-project.org](http://cloud.r-project.org)", correct = TRUE, message = "You can also download R from [cran.r-project.org](http://cran.r-project.org)"),
-    answer("www.r-project.org", message = "Good try, but not exactly. www.r-project.org doesn't provide a download link, but it does provide a link to one the websites above."),
-    answer("www.r.com"),
-    allow_retry = TRUE
-  ),
-  question("How often should you update R?",
-    answer("Everytime you use it", message = "This will be too often unless you use R very rarely!"),
-    answer("About once a year", correct = TRUE, "A new version of R is released about once a year. Update sooner if you encounter a bug that you cannot explain."),
-    answer("Never", message = "A new version of R is released about once a year. I'll assume that you are using the newest version of R, which will be the fastest version with the fewest unexpected behaviors." ),
-    allow_retry = TRUE
-  )
-)
+JSON check, GeoJSON check, JSON-LD check. You can now understand the basic concepts of these files. Just like the GeoJSON can be considered a special approach of a JSON file that considers specific structures to show geographic data, the GeoJSON-LD is an approach to show geographic linked data by using the JSON-LD processing model.
+
+All the structures showed in the section 2.2 (GeoJSON) are still valid for the GeoJSON-LD files, geometry types and other observations are some examples of that. The difference now is that we will use the GeoJSON features together with the main keys introduced in the JSON-LD concepts. This mixture returns the GeoJSON-LD.  
+
+The GeoJSON-LD context can be seen down below, this information can also be seem in [GEOJSON-LD page](https://geojson.org/geojson-ld/geojson-context.jsonld):
+
+```json
+{
+  "@context": {
+    "@version": 1.1,
+    "geojson": "https://purl.org/geojson/vocab#",
+    "Feature": "geojson:Feature",
+    "FeatureCollection": "geojson:FeatureCollection",
+    "GeometryCollection": "geojson:GeometryCollection",
+    "LineString": "geojson:LineString",
+    "MultiLineString": "geojson:MultiLineString",
+    "MultiPoint": "geojson:MultiPoint",
+    "MultiPolygon": "geojson:MultiPolygon",
+    "Point": "geojson:Point",
+    "Polygon": "geojson:Polygon",
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
+    },
+    "coordinates": {
+      "@container": "@list",
+      "@id": "geojson:coordinates"
+    },
+    "features": {
+      "@container": "@set",
+      "@id": "geojson:features"
+    },
+    "geometry": "geojson:geometry",
+    "id": "@id",
+    "properties": "geojson:properties",
+    "type": "@type"
+  }
+}  
 ```
 
-TODO: NOCHMAL DETAILIERTER BESCHREIBEN UND SCHRITT FÜR SCHRITT ERKLÄREN WIE NE GEOJSON-LD AUFGEBAUT IST
-
-### Exercise
-
-Answer the question. Multiple answers can be true.
-```{r where-am-i, echo=FALSE}
-question("What is true about GeoJSON?",
-  answer("GeoJSON uses the JavaScript Object Notation.", correct = TRUE),
-  answer("GeoJSON can not be used without JSON-LD processing."),
-  answer("Something true", correct = TRUE),
-  answer("Something true", correct = TRUE),
-    random_answer_order = TRUE,
-  incorrect = "Incorrect. You're on Earth, in the Milky Way, at a computer."
-)
-```
-
-
-The following GeoJSON file got some mistakes. Can you hunt them down to run the code correctly?
-```{r exercise1, exercise = TRUE}
-result <- rjson::fromJSON('{
-         "type": "MultiPolygon",
-         "coordinates": [
-             [
-                     [102.0, 2.0],
-                     [103.0, 2.0],
-                     [103.0, 3.0],
-                     [102.0, 3.0],
-                     [102.0, 2.0]
-             ],
-             [
-                 [
-                     [100.0, 0.0],
-                     [101.0, 0.0],
-                     [101.0, 1.0],
-                     [100.0, 1.0],
-                     [100.0, 0.0]
-                
-         ]
-     }')
-
-```
-
-```{r exercise2, exercise = TRUE}
-
-spdf <- geojson_read('PUT IN A URL OT A GEOJSON FILE THAT MIGHT BE INTERESTING',  what = "sp")
-
-par(mar=c(0,0,0,0))
-plot(spdf_region_6, col="grey")
-```
- 
+The GeoJSON-LD vocabulary for each one of the the GeoJSON elements already covered in other sections of this OER module can be found in [GEOJSON-LD VOCABULARY](https://geojson.org/geojson-ld/vocab.html).
