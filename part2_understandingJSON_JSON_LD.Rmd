@@ -143,13 +143,11 @@ What we see are three different JSON-files that are meant to describe the same p
  Schema.org is a collaborative, community activity with a mission to create, maintain, and promote schemas for structured data on the Internet, on web pages, in email messages, and beyond.
 
 Schema.org vocabulary can be used with many different encodings, including RDFa, Microdata and JSON-LD. These vocabularies cover entities, relationships between entities and actions, and can easily be extended through a well-documented extension model. Over 10 million sites use Schema.org to markup their web pages and email messages. Many applications from Google, Microsoft, Pinterest, Yandex and others already use these vocabularies to power rich, extensible experiences. 
-
-Now that we know the background of JSON-LD, we can learn the most important parts, aka keys, used in a JSON-LD file. Let`s dive into it. 
 :::
 
 ### Type
 
-As a first step we can now add a `type` to our JSON file. A node type specifies the type of thing that is being described, like a person, place, event, or web page. Each of the JSON datasets is describing a person so we can search [Schema.org](https://schema.org/) for `Person` and add the link of the type to our JSON file. This step will just be explained with the first example.
+As a first step we can now add a `type` to our JSON file. Each of the JSON datasets is describing a person so we can search [Schema.org](https://schema.org/) for `Person` and add the link of the type to our JSON file. This step will just be explained with the first example.
 
 Example 1 (with Type):
 ```json 
@@ -216,13 +214,13 @@ Now it is your turn to take these three examples and validate them. As you can s
 
 ### Usage of the JSON-LD format
 
-What we have seen now is the `context` and the `type` that was added to the JSON. Still not clear? Not a problem my friend. Have a look at the following statement from [JSON-LD.org](https://json-ld.org/spec/latest/json-ld/#the-context) that may help you to understand the concept of jSON-LD:
+What we have seen now is the `context` and the `type` that was added to the JSON. Still not clear? Not a problem my friend. Have a look at the following statement from [JSON-LD.org](https://json-ld.org/spec/latest/json-ld/#the-context):
 
 :::{.message}
 When two people communicate with one another, the conversation takes place in a shared environment, typically called "the context of the conversation". This shared context allows the individuals to use shortcut terms, like the first name of a mutual friend, to communicate more quickly but without losing accuracy. A context in JSON-LD works in the same way. It allows two applications to use shortcut terms to communicate with one another more efficiently, but without losing accuracy
 :::
 
-In other words, when we are talking about anything we are basically considering the context that something happened or will happen, this can also be used with linked data in the JSON-LD format. So in the examples above we used the "@context" key to all of the three shown JSON files.
+In other words, when we are talking about anything we are basically considering the context that something happened or will happen, this can also be used with linked data in the JSON-LD format. So in the examples above we used the "@context" key to all of the three show JSON files.
 
 But using short cut terms is just one advantage of linked data. If you want to find out more you may watch the following two videos by [Manu Sporny](https://www.youtube.com/c/ManuSporny). The first one is about the core markup and explains the type, how to give references, to use aliases and how to internalize a JSON file.
 
@@ -245,21 +243,6 @@ JSON-LD Compaction and Expansion
 ![](https://youtu.be/Tm3fD89dqRE)
 :::
 </details>
-
-```{r quiz2, echo=FALSE}
-quiz(caption = "Quiz - How JSON-LD work?",
-  question("What is the main difference between JSON-LD to a regular JSON file?"),
-    answer("JSON-LD is used for linked data", correct = TRUE, message = "JSON-LD facilitates the communication with linked data. JSON has no built-in support for hyperlinks, which are a fundamental building block on the Web. Remember that the 'LD' stands for linked data."),
-    answer("There is no difference between both of them, JSON-LD is just another name that is used to call the JSON format."),
-    answer("JSON-LD has a completely diferent structure when comparing to a JSON."),
-  question("What is the most important 'key' used in a JSON-LD file?"),
-    answer("@json-ld"),
-    answer("@main"),
-    answer("@background"),
-    answer("@info"),
-    answer("@context", correct = TRUE, message = "The '@context' tells the application how to interpret the rest of the data in the document. It allows two applications to use shortcut terms to communicate with one another more efficiently, but without losing accuracy.")
-  )
-```
 
 
 
