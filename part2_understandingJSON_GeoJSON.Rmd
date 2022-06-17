@@ -17,10 +17,10 @@ geoimg <- load.image("graphics/undraw_real_time_analytics_re_yliv.png")
 grid.raster(geoimg)
 ```
 
-GeoJSON is the JSON specialization for storing geographical data data. Additional to the JSON rules there are some more that defines a GeoJSON. A GeoJSON has to have a 'type' attribute than can be a value of these: [`Point`, `MultiPoint`, `LineString`, `MultiLineString`, `Polygon`, `MultiPolygon`, `GeometryCollection`, `Feature`, `FeatureCollection`]. Furthermore the position is important for a GeoJSON where coordinates are allway given in `WGS84` due to the fact that other CRS harm the interoperability of the GeoJSON. Below you can see the official definition from [GeoJSON.org](https://geojson.org/).:
+GeoJSON is the JSON specialization for storing geographical data data. Additional to the JSON rules there are some more that defines a GeoJSON. A GeoJSON has to have a 'type' attribute than can be a value of these: [`Point`, `MultiPoint`, `LineString`, `MultiLineString`, `Polygon`, `MultiPolygon`, `GeometryCollection`, `Feature`, `FeatureCollection`]. Furthermore the position is important for a GeoJSON where coordinates are always given in `WGS84` due to the fact that other CRS harm the interoperability of the GeoJSON. Below you can see the official definition from [GeoJSON.org](https://geojson.org/).:
 
 ::: {#GeoJSONdefinition .message}
-GeoJSON is a format for encoding a variety of geographic data structures.GeoJSON supports the following geometry types: Point, LineString, Polygon, MultiPoint, MultiLineString, and MultiPolygon. Geometric objects with additional properties are Feature objects. Sets of features are contained by FeatureCollection objects.
+GeoJSON is a format for encoding a variety of geographic data structures. GeoJSON supports the following geometry types: Point, LineString, Polygon, MultiPoint, MultiLineString, and MultiPolygon. Geometric objects with additional properties are Feature objects. Sets of features are contained by FeatureCollection objects.
 :::
 
 Now, lets have a look at an example for a GeoJSON. The first one shows a valid point and the second one a feature with a geometry that is also a point. The difference lays in the structure and the additional information that are included.
@@ -127,13 +127,13 @@ map <- leaflet(width = 1000, height = 500) %>%
 map
 ```
 
-I you want to read the whole GeoJSON specification you can [follow this link to the GeoJSON specification (RFC 7946)](https://datatracker.ietf.org/doc/html/rfc7946)
+The geometries available don't stop only in the structures showed above. The other geometry types are just a little bit different from the ones just showed, being the combination of one or more elements or just a origin structure of the ones that have been showed. For instance, `LineString`,`MultiLineString`, `Polygon`. If you want to read the whole GeoJSON specification you can [follow this link to the GeoJSON specification (RFC 7946)](https://datatracker.ietf.org/doc/html/rfc7946). 
 
-POSSIBLE QUESTIONS AT THE END: what do we see in a code snipped what is legal or illigal with geojson
+:::{.quickquestion}
+What is the relation between a `LineString` and a `Polygon`? And between a `Point` and a `MultiPoint`?
+:::
 
-If you would like to see the official definition of GeoJSON you may have [a look at this page](https://datatracker.ietf.org/doc/html/rfc7946).
-
-TODO: NOCHMAL DETAILIERTER BESCHREIBEN UND SCHRITT FÜR SCHRITT ERKLÄREN WIE NE GEOJSON AUFGEBAUT IST
+The different geometry types and its value inputs is what going to really differentiate one GeoJSON to another. Besides them, it also important to keep some concepts in mind. Regarding the Coordinate Reference System, all GeoJSON coordinates uses the World Geodetic System 1984 (WGS 84) datum, with longitude and latitude units of decimal degrees.
 
 ### Setting up a GEOJSON-file
 
@@ -165,8 +165,6 @@ map <- leaflet(width = 1000, height = 500) %>%
          addGeoJSON(pointsSupermarket)
 map
 ```
-
-
 
 ```{json SupermarketTask, exercise = TRUE}
 
