@@ -132,7 +132,7 @@ Try to validate our GeoJSON-LD code again and see what happens.
 
 Amazing! We now have our first valid GeoJSON-LD file. But wait, there is more!
 
-As you have seen before, another key feature of JSON-LD is typing. It defines how a specific JSON attribute should be interpreted by assigning an attribute type to it. "But how is this useful for sharing geogrpahic information?" you might ask. As you might have learned, the GeoJSON standard already is very regulated in defining certain features regarding it's syntax, making it easy to interpret by applications and humans alike. It only allows specific feature types, like `Feature`, `Point` or `Multipolygon` and has to include a geometry and properties. Problems arise with the definition of properties however, since property names can be freely chosen and there are no data types available for properties in regular GeoJSON. This makes it difficult to work with properties in regular GeoJSON, because there is no "standardized way" of how they are defined and interpreted. To illustrate that, have a look at the example below. 
+As you have seen before, another key feature of JSON-LD is typing. It defines how a specific JSON attribute should be interpreted by assigning an attribute type to it. "But how is this useful for sharing geographic information?" you might ask. As you might have learned, the GeoJSON standard already is very regulated in defining certain features regarding it's syntax, making it easy to interpret by applications and humans alike. It only allows specific feature types, like `Feature`, `Point` or `Multipolygon` and has to include a geometry and properties. Problems arise with the definition of properties however, since property names can be freely chosen and there are only limited data types available for properties in regular GeoJSON. This makes it difficult to work with properties in regular GeoJSON, because there is no "standardized way" of how they are defined and interpreted. To illustrate that, have a look at the example below. 
 
 Michael also found a dataset about the lake Aasee on OpenStreetMap he would like to share. It contains a GeoJSON MultiPolygon, covering the area of the Aasee and including some useful additional information as properties, such as the name, maximum water depth and the type of water.
 
@@ -216,11 +216,47 @@ As you can see, it can be very complicated and confusing to work with regular Ge
 
 ### GeoJSON-LD Typing
 
+In this next step we are going to add LD typing to our GeoJSON properties to define how they are supposed to be interpreted. Since it makes sense to model the maximum water depth as a numeric value we are going to add the datatype `xsd:integer` to our attribute `maxdepth`:
 ```{json}
 {
     "@context": "https://geojson.org/geojson-ld/geojson-context.jsonld",
     "type": "Feature",
     "properties": {
+        "maxdepth": {
+            "@type":"xsd:integer",
+            "@value":"2"
+        }
+    },
+    "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+            [
+                [
+                    ...
+                ]
+            ]
+        ]
+    }
+}
+```
+
+Think of how we could adjust our the name and type of water properties. You can use this [list of data types](https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes) to find out which data type might be the best fit.
+
+### GeoJSON-LD Typing #2
+
+```{json}
+{
+    "@context": "https://geojson.org/geojson-ld/geojson-context.jsonld",
+    "type": "Feature",
+    "properties": {
+        "name": {
+            "@type":"xsd:string",
+            "@value":"Aasee"
+        },
+        "freshwater": {
+            "@type":"xsd:boolean",
+            "@value":"TRUE"
+        },
         "maxdepth": {
             "@type":"xsd:integer",
             "@value":"2"
