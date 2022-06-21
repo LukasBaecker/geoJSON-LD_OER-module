@@ -2,35 +2,45 @@
 
 ### Abstract 
 
-Encoding is the process of converting data from one form to another. Although humans are comfortable working with texts, computers work with binary numbers (0 or 1). For this reason, all information such as numbers and other characters can be expressed as numbers. Transmitting data in web applications and APIs are some examples of when encoding is necessary. In this context, JSON and GEOJSON appear as great solutions to transmit data, JSON for more general data, and GEOJSON for geographic data structures. Considering the connection of multiple information that are available nowadays on the web,  being able to link all this data in a way empowers people to find, publish and use even more of the information on the web, in this specific context of using linked data, the JSON-LD and the GEOJSON-LD formats appear as a more refined approach to be used. This course aims to give an introduction to encoding using JSON, GEOJSON, JSON-LD, and GEOJSON-LD.
+```{r abstractPic, echo=FALSE, out.width= "100%", out.extra='style="float:center;"'}
+myimg2 <- load.image("graphics/undraw_real_time_analytics_re_yliv.png")
+grid.raster(myimg2)
+```
+
+Encoding is the process of converting data from one form to another. Although humans are comfortable working with texts, computers work with binary numbers (0 or 1). For this reason, all information such as numbers and other characters can be expressed as numbers. Transmitting data in web applications and APIs are some examples of when encoding is necessary. In this context, `JSON` and `GeoJSON` appear as great solutions to transmit data, `JSON` for more general data, and `GeoJSON` for geographic data structures. Considering the connection of multiple information that are available nowadays on the web,  being able to link all this data in a way empowers people to find, publish and use even more of the information on the web, in this specific context of using linked data, the `JSON-LD` and the `GeoJSON-LD` formats appear as a more refined approach to be used. This course aims to give an introduction to encoding using JSON, `GeoJSON`, `JSON-LD`, and `GeoJSON-LD`.
 
 
 ### Structure of the Course
 
-The total time of activities is input_total_time. 
+```{r struturePic, echo=FALSE, out.width= "65%", out.extra='style="float:right; padding:10px"'}
+myimg2 <- load.image("graphics/undraw_Educator_re_s3jk.png")
+grid.raster(myimg2)
+```
 
-The content is divided into studying material such as texts and slides, videos, exercises, and quizzes. The exercises cover examples that you would find in daily tasks regarding the application of  JSON, GEOJSON, JSON-LD, and GEOJSON-LD. It is recommended that you use the datasets provided in the exercises, do the exercises, and verify the answers. The exercises are constructed in a way to help you understand the concepts covered in the theory part. They also serve as a way to prepare you for the quizzes available throughout the course that will serve as the assessment method for the course. 
+The total time of activities is 90 minutes plus more if you watch all of the offered videos and do the further tasks we prepared for you. 
+
+The content is divided into studying material such as texts and slides, videos, exercises, and quizzes. The exercises cover examples that you would find in daily tasks regarding the application of  `JSON`, `GeoJSON`, `JSON-LD`, and `GeoJSON-LD`. It is recommended that you use the datasets provided in the exercises, do the exercises, and verify the answers. The exercises are constructed in a way to help you understand the concepts covered in the theory part. They also serve as a way to prepare you for the quizzes available throughout the course. 
 
 
 ### This course can be done by any person who:
 * has basic knowledge of programming logic;
 * has basic knowledge of at least one programming language;
-* wants to have an introduction regarding  JSON, GEOJSON, JSON-LD, and GEOJSON-LD technologies.
+* wants to have an introduction regarding  `JSON`, `GeoJSON`, `JSON-LD`, and `GeoJSON-LD` technologies.
 
 
 ### In the hands-on component of these lessons, you will be doing the following:
-* Creating a simple JSON file;
-* Creating a simple GEOJSON file;
-* Taking a JSON file and converting it into a JSON-LD file;
-* Taking a GEOJSON file and converting it into a GEOJSON-LD file.
+* Creating a simple `JSON` file;
+* Creating a simple `GeoJSON` file;
+* Taking a `JSON` file and converting it into a `JSON-LD` file;
+* Taking a `GeoJSON` file and converting it into a `GeoJSON-LD` file.
 
 
 ### After finishing this course you will be able to:
-* Create JSON and GEOJSON files from scratch;
-* Convert JSON and GEOJSON files to JSON-LD and GEOJSON-LD respectively;
-* Know when to use JSON-LD and GEOJSON-LD files instead of JSON and GEOJSON respectively.
+* Create `JSON` and `GeoJSON` files from scratch;
+* Convert `JSON` and `GeoJSON` files to `JSON-LD` and `GeoJSON-LD` respectively;
+* Know when to use JSON-LD and `GeoJSON-LD` files instead of JSON and `GeoJSON` respectively.
 
 
 ### Language
 
-English 
+`English`
