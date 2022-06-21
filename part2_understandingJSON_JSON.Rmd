@@ -90,7 +90,7 @@ You can use the code block to insert your code but running the block will never 
 ```{json taskLuigi2, exercise = TRUE}
 
 ```
-```{json taskLuigi-solution2}
+```{json taskLuigi2-solution}
 {
     "name":"Pizza Luigi",
     "dishes":[
@@ -125,7 +125,7 @@ print(sceurope)
 #show only when the Club was founded
 print(sceurope$founded)
 ```
-```{r accessingSCEurope-solution}
+```{r accessingSCEurope2-solution}
 print(sceurope$members[[2]]$email)
 ```
 
