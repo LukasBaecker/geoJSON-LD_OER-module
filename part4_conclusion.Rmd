@@ -1,33 +1,31 @@
 ## 4. Wrap Up
 
-### How to install R packages
+Every journey comes to and end. Now you know how to use JSON-LD and GeoJSON-LD files.
 
-![](https://vimeo.com/203516241)
+What is it? It is time to sum up!
 
-### Test your knowledge
+In the first section a quick introduction to the course was given. We firstly explained how JSON files work. We showed that JSON is basically a way to interchange data and that is structured in a way that both machine and humans can understand.
 
-```{r conclusion, echo = FALSE}
-quiz(caption = "Quiz - Working with Packages",
-  question("What command do you use to install packages?",
-    answer("`library()`", message = "We will see what `library()` does later."),
-    answer("`install.packages()`", correct = TRUE),
-    answer("`install_packages()`"),
-    answer("There is no command. You must visit [cran.r-project.org](http://cran.r-project.org) and download packages manually.", message = "R makes it easy to download packages. You connect to the internet and then run one of the commands above."),
-    allow_retry = TRUE
-  ),
-  question("How often do you need to install a package on your computer?",
-    answer("Every time you restart R"),
-    answer("Every time you restart your computer"),
-    answer("Only once. Afterwards, R can find it on your hard drive as needed.", correct = TRUE),
-    answer("Never, as long as you are connected to the internet.", message = "This could be true if you are using R over a cloud service. However, if you are using R locally on your own computer, you will need to install each package that you use on your computer."),
-    allow_retry = TRUE
-  ),
-  question("What is the tidyverse?",
-    answer("A collection of packages that work well together and provide tools for common data science tasks.", correct = TRUE, message = 'You can install all of the tidyverse packages at once with `install.packages("tidyverse")`.'),
-    answer("A word processing program for R"),
-    answer("A code style that reads like poetry"),
-    answer("An alternate universe where everyone is an R programmer."),
-    allow_retry = TRUE
-  )
-)
+Knowing most of the concepts about JSON, it was time to learn about GeoJSON, the differences between both files were presented. You were able to see that GeoJSON follows one structure really similar to the JSON, but considering special objects to represent geographical data (also known as `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiPolygon`, `GeometryCollection`).
+
+With a good foundation, we were finally able to start learning about the JSON-LD and GeoJSON-LD. You learned the concept of linked data and together with it, you learned how to use the special structures that define the JSON-LD and GeoJSON-LD files (aka `@context` and `@type`).
+
+After reading, seeing some videos, coding with the code snippets and finally answering quiz questions, you are now in the group of people that know how to use JSON-LD and GeoJSON-LD. Congrats my friend!
+
+Remember, practicing is always the best way to learn something. Keep practicing the concepts that you learned.
+
+One more thing, this module was developed to help the most number of people possible. Share this resource with your friends that you believe would want to learn about JSON-LD and GeoJSON-LD.
+
+Do you have any advice or suggestions? Our [GitHub](https://github.com/LukasBaecker/geoJSON-LD_OER-module) page is also there to help you.
+
+```{r struturePic2, echo=FALSE, out.width= "100%", out.extra='style="float:right; padding:10px"'}
+myimg10 <- load.image("graphics/undraw_Well_done_re_3hpo.png")
+grid.raster(myimg10)
 ```
+
+
+
+
+
+
+
