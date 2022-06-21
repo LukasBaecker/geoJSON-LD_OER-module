@@ -44,8 +44,5 @@ sceurope <- rjson::fromJSON(file = "./data/scEurope.json")
 ```{r child = 'part3_createGeoJSON.Rmd'}
 ```
 
-```{r child = 'part4_useGeoJSON.Rmd'}
-```
-
-```{r child = 'part5_conclusion.Rmd'}
+```{r child = 'part4_conclusion.Rmd'}
 ```
