@@ -1,5 +1,5 @@
 ---
-title: "JSON-LD & GeoJSON-LD"
+title: "Learn JSON-LD and GeoJSON-LD"
 output:
   learnr::tutorial:
     css: ./css/styles.css

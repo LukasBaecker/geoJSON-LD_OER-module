@@ -2,8 +2,8 @@
 
 ### Abstract 
 
-```{r abstractPic, echo=FALSE, out.width= "100%", out.extra='style="float:center;"'}
-myimg2 <- load.image("graphics/undraw_real_time_analytics_re_yliv.png")
+```{r abstractPic, echo=FALSE, out.width= "80%", out.extra='style="margin-left:50%; transform: translate(-50%)"'}
+myimg2 <- load.image("graphics/undraw_Memory_storage_reh0.png")
 grid.raster(myimg2)
 ```
 

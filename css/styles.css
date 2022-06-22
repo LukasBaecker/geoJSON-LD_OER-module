@@ -5,6 +5,10 @@ body {
 text-align: justify;
 }
 
+.tutorialTitle{
+    text-align: left;
+    background-color: #eee;
+}
 .message{
     color: white;
     background-color: #5a9ddb;
